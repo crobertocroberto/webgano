@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de Página HTML con Estilos</title>
+    <style>
+        /* Estilos para el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos para el encabezado */
+        header {
+            background-color: #518448;
+            color: #050505;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Estilos para el menú de navegación */
+        nav {
+            background-color: #3f673c;
+            color: #0b0a0a;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        /* Estilos para la sección de contenido */
+        section {
+            /* max-width: 1000px; */
+            /* margin: 20px auto; */
+            background-color: #d0ee6d;
+            padding: 70px;
+            border-radius: 5px;
+        }
+
+        /* Estilos para las imágenes */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Estilos para el formulario de contacto */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #555;
+            color: #fff;
+            padding: 10px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #333;
+        }
+
+        #image-container {
+            width: 400px; /* Ajusta el ancho según tus preferencias */
+            height: 200px; /* Ajusta la altura según tus preferencias */
+            overflow: hidden; /* Oculta las imágenes que no caben en el contenedor */
+            position: absolute;
+        }
+
+        /* Estilos para las imágenes */
+        .carousel-image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            position: absolute;
+            transition: opacity 1s; /* Efecto de transición para el cambio de imágenes */
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WEBGANO</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Bienvenido a WEBGANO</h2>
+        <p>Conoce experiencias y cuentanos la tuya..!!</p>
+        
+        <div id="image-container">
+          <img class="carousel-image" src="vegan.jpeg" alt="Imagen 1">
+          <img class="carousel-image" src="vegano.jpeg" alt="Imagen 2">
+          <img class="carousel-image" src="veganos.jpg" alt="Imagen 3">
+        </div>
+               
+        <h3>Contáctanos</h3>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" id="correo" name="correo">
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje"></textarea>
+            <input type="submit" value="Enviar">
+        </form>
+    </section>
+    <script>
+      const images = document.querySelectorAll('.carousel-image');
+      let currentIndex = 0;
+
+      function showNextImage() {
+          images[currentIndex].style.opacity = 0; // Oculta la imagen actual
+          currentIndex = (currentIndex + 1) % images.length; // Cambia al siguiente índice
+          images[currentIndex].style.opacity = 1; // Muestra la nueva imagen
+      }
+
+      // Inicia el carrusel
+      setInterval(showNextImage, 3000); // Cambia de imagen cada 3 segundos (ajusta el intervalo según tus preferencias)
+  </script>
+</body>
+</html>
